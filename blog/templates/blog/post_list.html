@@ -2,7 +2,7 @@
                 {% extends 'blog/base.html' %}
 
                 {% block content %}
-                    {% for post in posts %}
+                    {% for post in mes_articles %}
                         <div class="post">
                             <div class="date">
                                 <p>published: {{ post.published_date }}</p>
@@ -11,4 +11,5 @@
                             <p>{{ post.text|linebreaksbr }}</p>
                         </div>
                     {% endfor %}
+                    <!-- for post in mes_articles = foreach ; mes_articles = variable -->
                 {% endblock %}

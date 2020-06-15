@@ -9,11 +9,13 @@ from .forms import PostForm
 
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    return render(request, 'blog/post_list.html', {'mes_articles': posts})
+    # {'posts': posts} variable du template
 
 def post_detail(request, pk):
+    # variable pk (primary key) : chiffre dans url
     post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+    return render(request, 'blog/post_detail.html', {'mon_article': post})
 
 def post_new(request):
     if request.method == "POST":
@@ -41,4 +43,3 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
-        
