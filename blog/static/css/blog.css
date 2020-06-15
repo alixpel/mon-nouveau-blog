@@ -70,4 +70,8 @@ h2 {
     float: right;
 }
 
+.post_image {
+  max-width: 60vw;
+}
+
 Context | Request Context
